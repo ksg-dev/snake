@@ -39,6 +39,12 @@ while playing:
         playing = False
         scoreboard.game_over()
 
+    # Detect collision w tail
+    # if head collides w any segment in tail - trigger game over
+    for segment in snake.segments[1:]:
+        if snake.head.distance(segment) < 10:
+            playing = False
+            scoreboard.game_over()
 
 
 screen.exitonclick()

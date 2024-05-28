@@ -31,7 +31,13 @@ while playing:
     if snake.head.distance(food) < 15:
         print("NOM")
         food.refresh()
+        snake.extend()
         scoreboard.point()
+
+    # Detect collision w wall
+    if snake.head.xcor() < -280 or snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        playing = False
+        scoreboard.game_over()
 
 
 
